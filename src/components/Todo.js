@@ -58,8 +58,6 @@ const Todo = () => {
         </button>
       </div>
 
-      <hr />
-
       <div className="Inner">
         <div className="todolist">TodoList</div>
         <div className="buttons">
