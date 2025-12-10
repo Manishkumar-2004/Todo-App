@@ -10,9 +10,11 @@
   justify-content: center;
   background: #0d0d0d; /* Dark background */
   color: white;
+  margin: 0;
+  padding: 0;
 }
 
-/* Fade-in animation for whole Todo card */
+/* Fade-in animation */
 @keyframes fadeSlide {
   0% {
     opacity: 0;
@@ -37,22 +39,41 @@
   border-radius: 20px;
   width: 500px;
   min-height: 400px;
-  background: #111827; /* Dark card */
+  background: #111827;
   box-shadow: 0px 4px 20px rgba(0, 255, 255, 0.1);
 
-  /* Animation */
   animation: fadeSlide 0.6s ease-out;
 }
 
-/* Mobile Responsive */
+/* ======================= */
+/*      MOBILE VIEW        */
+/* ======================= */
+
 @media (max-width: 600px) {
   .Outter {
-    width: 90%;
+    width: 100%;
+    min-height: 100vh;   /* FULL SCREEN */
     padding: 20px;
+    border-radius: 0;    /* Removes round corners */
+    border: none;        /* Clean mobile design */
+    box-shadow: none;
+  }
+
+  .Inner-top {
+    flex-direction: column;
+    align-items: center;
   }
 
   .inp {
-    width: 60%;
+    width: 90% !important;
+  }
+
+  .add-button {
+    width: 90%;
+  }
+
+  .Inner {
+    max-height: 65vh;    /* More space for todo list */
   }
 }
 
@@ -73,7 +94,6 @@
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #374151;
-  box-sizing: border-box;
   background: #1f2937;
   color: white;
   transition: all 0.3s ease;
@@ -98,7 +118,7 @@
 .Todo {
   padding: 10px 20px;
   border: none;
-  background-color: #14b8a6; /* Teal accent */
+  background-color: #14b8a6;
   color: black;
   border-radius: 8px;
   font-weight: bold;
@@ -112,10 +132,6 @@
 .Todo:hover {
   transform: scale(1.08);
   box-shadow: 0px 4px 15px rgba(20, 184, 166, 0.4);
-}
-
-.add-button:active {
-  transform: scale(0.95);
 }
 
 /* ======================= */
@@ -133,10 +149,16 @@
   background: #1f2937;
 }
 
-/* Smooth appearance of new tasks */
+/* Smooth new-task animation */
 @keyframes popIn {
-  0% { transform: scale(0.85); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .task-item {
@@ -167,10 +189,9 @@
 .completed {
   text-decoration: line-through;
   color: #f87171;
-  transition: color 0.3s;
 }
 
-/* Icons */
+/* Edit & Delete Icons */
 .edit {
   color: gold;
   cursor: pointer;
@@ -192,6 +213,7 @@
 }
 
 /* Filter Buttons Row */
+
 .buttons {
   display: flex;
   gap: 30px;
@@ -208,3 +230,4 @@
   background: #4b5563;
   border-radius: 10px;
 }
+
